@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 class CustomCircularButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
+  final String heroTag;
   const CustomCircularButton({
-    Key? key,
+    super.key,
     required this.icon,
     required this.onPressed,
-  }) : super(key: key);
+    required this.heroTag,
+  });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: heroTag,
       onPressed: onPressed,
       shape: const CircleBorder(),
       backgroundColor: Theme.of(context).primaryColorDark.withOpacity(0.4),

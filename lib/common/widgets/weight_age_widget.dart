@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:lion_project_07/custom_circular_button.dart';
 
 class WeightAgeWidget extends StatelessWidget {
   final String text;
   final String value;
-  final VoidCallback? increment;
-  final VoidCallback? decrement;
+  final Widget child1;
+  final Widget child2;
   const WeightAgeWidget({
     required this.text,
     required this.value,
-    required this.decrement,
-    required this.increment,
+    required this.child1,
+    required this.child2,
     Key? key,
   }) : super(key: key);
 
@@ -34,21 +33,15 @@ class WeightAgeWidget extends StatelessWidget {
             const SizedBox(height: 6),
             Text(
               value,
-              style: TextStyle(fontSize: 36.0),
+              style: const TextStyle(fontSize: 36.0),
             ),
             const SizedBox(height: 6),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                CustomCircularButton(
-                  icon: Icons.add,
-                  onPressed: increment,
-                ),
-                const SizedBox(width: 12),
-                CustomCircularButton(
-                  icon: Icons.remove,
-                  onPressed: decrement,
-                ),
+                child1,
+                const SizedBox(width: 9),
+                child2,
               ],
             )
           ],
